@@ -33,7 +33,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .open("firebase_logs.txt")
         .await?;
 
-    println!("✅ Escutando atualizações em tempo real");
+    println!("Escutando atualizações em tempo real");
 
     // Loop contínuo — nunca termina enquanto o programa rodar
     while let Some(chunk) = stream.next().await {
@@ -55,15 +55,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             let log_line = format!("[{}] {}\n", now, parsed);
                             file.write_all(log_line.as_bytes()).await?;
                             file.flush().await?;
-                            println!("📝 Novo evento: {}", log_line.trim());
+                            println!("Novo evento: {}", log_line.trim());
                         } else {
-                            println!("⚠️ Pacote não reconhecido: {}", json_part);
+                            println!("Pacote não reconhecido: {}", json_part);
                         }
                     }
                 }
             }
             Err(e) => {
-                eprintln!("❌ Erro no stream: {}", e);
+                eprintln!("Erro no stream: {}", e);
                 break;
             }
         }
