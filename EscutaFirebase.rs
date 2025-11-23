@@ -6,7 +6,7 @@ use serde_json::Value;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // URL do seu nó no Firebase RTDB
-    let database_url = "https://esp-projeto-5d4b2-default-rtdb.firebaseio.com//ESP-Projeto-V2/ultimo.json";
+    let database_url = "https://URL-DO-CAMINHO-A-SER-LIDO.json";
 
     // Cabeçalho necessário para streaming (SSE)
     let mut headers = header::HeaderMap::new();
